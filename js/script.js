@@ -46,8 +46,8 @@ async function loadCharacters(url) {
         const nextButton = document.getElementById('next-button')
         const backButton = document.getElementById('back-button')
 
-        nextButton.disable = !responseJson.next
-        backButton.disable = !responseJson.previous
+        nextButton.disabled = !responseJson.next
+        backButton.disabled = !responseJson.previous
 
         backButton.style.visibility = responseJson.previous? "visible" : "hidden"
         
