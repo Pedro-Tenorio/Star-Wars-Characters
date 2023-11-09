@@ -40,6 +40,10 @@ async function loadCharacters(url) {
             characterNameBG.appendChild(characterName)
             card.appendChild(characterNameBG)
 
+            card.onclick = () => {
+                document.getElementById('modal').style.visibility = "visible"
+            }
+
             mainContent.appendChild(card)
         });
 
@@ -87,4 +91,8 @@ async function loadPreviousPage() {
         console.log(error)
         alert('Erro ao carregar página anterior')
     }
+}
+
+function hideModal() {
+    document.getElementById('modal').style.visibility = "hidden"
 }
