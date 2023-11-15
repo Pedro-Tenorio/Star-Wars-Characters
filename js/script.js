@@ -42,6 +42,18 @@ async function loadCharacters(url) {
 
             card.onclick = () => {
                 document.getElementById('modal').style.visibility = "visible"
+
+                const modalContent = document.getElementById('modal-content')
+                modalContent.innerHTML = ''
+
+                const contentModal = `<div class="character-image" style="background-image: url('https://starwars-visualguide.com/assets/img/characters/${character.url.replace(/\D/g, "")}.jpg');"></div>
+                <span class="character-details">Nome: ${character.name}</span>
+                <span class="character-details">Altura: ${convertHeight(character.height)}</span>
+                <span class="character-details">Peso: ${convertMass(character.mass)}</span>
+                <span class="character-details">Cor dos olhos: ${convertColor(character.eye_color)}</span>
+                <span class="character-details">Nascimento: ${convertBirthYear(character.birth_year)}</span>`
+                
+                modalContent.innerHTML += contentModal   
             }
 
             mainContent.appendChild(card)
@@ -95,4 +107,44 @@ async function loadPreviousPage() {
 
 function hideModal() {
     document.getElementById('modal').style.visibility = "hidden"
+}
+
+function convertColor(eyeColor) {
+    const cores = {
+        blue: "azul",
+        brown: "castanho",
+        green: "verde",
+        yellow: "amarelo",
+        black: "preto",
+        pink: "rosa",
+        red: "vermelho",
+        orange: "laranja",
+        hanzel: "avelã",
+        unknown: "desconhecida"
+    };
+
+    return cores[eyeColor.toLowerCase()] || eyeColor
+}
+
+function convertHeight(height) {
+    if(height === "unknown") {
+        return "desconhecida"
+    }
+
+    return (height / 100).toFixed(2);
+}
+
+function convertMass(mass) {
+    if(mass === "unknown") {
+        return "desconhecida"
+    }
+
+    return `${mass} Kg`
+}
+
+function convertBirthYear(birthYear) {
+    if(birthYear === "unknown") {
+        return "desconhecida"
+    }
+    return birthYear
 }

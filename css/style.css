@@ -186,3 +186,18 @@ footer .copyrigth {
     row-gap: 15px;
     padding: 30px 10px;
 }
+
+.character-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-position: 50% 10%;
+    background-size: cover;
+}
+
+.character-details {
+    font-family: 'Star Wars', sans-serif;
+    font-size: 1rem;
+    font-weight: lighter;
+    color: gold;
+}
